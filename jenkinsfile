@@ -2,9 +2,9 @@ pipeline{
     agent any
 
     stages{
-         stage('etape de compilation du projet'){
+         stage('compilation du projet'){
              steps{
-                withMaven(maven:'maven_3_6_1'){
+                withMaven(maven : 'maven_3_6_1'){
                    // sh 'mvn clean compile'
                     echo "step clean compile"
                 }
@@ -12,9 +12,9 @@ pipeline{
 
          }
 
-         stage('etape de test '){
+         stage('test du projet '){
             steps{
-                withMaven(maven:'maven_3_6_1'){
+                withMaven(maven : 'maven_3_6_1'){
                  //   sh 'mvn test'
                     echo "step test"
                 }
@@ -22,9 +22,9 @@ pipeline{
             }
          }
 
-          stage('etape de deploiement  '){
+          stage('Deploiement du projet '){
                      steps{
-                         withMaven(maven:'maven_3_6_1'){
+                         withMaven(maven : 'maven_3_6_1'){
                             // sh 'mvn deploy'
                             echo "step deploy"
                          }
