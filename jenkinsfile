@@ -1,0 +1,30 @@
+pipeline{
+    agent any
+
+    stages{
+         stage('etape de compilation du projet'){
+             steps{
+                withMaven(maven:'maven_3_6_1'){
+                    sh 'mvn clean compile'
+                }
+             }
+
+         }
+
+         stage('etape de test '){
+            steps{
+                withMaven(maven:'maven_3_6_1'){
+                    sh 'mvn test'
+                }
+            }
+         }
+
+          stage('etape de deploiement  '){
+                     steps{
+                         withMaven(maven:'maven_3_6_1'){
+                             sh 'mvn deploy'
+                         }
+                     }
+                  }
+    }
+}
