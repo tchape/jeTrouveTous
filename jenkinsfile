@@ -24,6 +24,7 @@ pipeline{
 
           stage('Deploiement du projet '){
                      steps{
+                         echo "debut du deploiement avec maven"
                          withMaven(maven : 'maven_3_6_1'){
                             // sh 'mvn deploy'
                             echo "step deploy"
