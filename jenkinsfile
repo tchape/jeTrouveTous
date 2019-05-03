@@ -1,7 +1,8 @@
 pipeline{
     agent {
         docker {
-            image 'mysql:5.7.26'
+           // image 'mysql:5.7.26'
+           image 'node:7-alpine'
         }
     }
 
