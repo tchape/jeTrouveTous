@@ -18,41 +18,5 @@ pipeline{
                     }
                 }
             }
-
-         stage('compilation du projet'){
-             steps{
-
-                    echo "compile"
-                    sh 'mvn clean compile'
-                /*withMaven(maven : 'maven_3_6_1'){
-                   // sh 'mvn clean compile'
-                    echo "step clean compile"
-                }*/
-             }
-
-         }
-
-         stage('test du projet '){
-            steps{
-
-                    echo "test"
-               /* withMaven(maven : 'maven_3_6_1'){
-                 //   sh 'mvn test'
-                    echo "step test"
-                }*/
-
-            }
-         }
-
-          stage('Deploiement du projet '){
-                     steps{
-                         echo "debut du deploiement avec maven"
-                       /*  withMaven(maven : 'maven_3_6_1'){
-                            // sh 'mvn deploy'
-                            echo "step deploy"
-                         }*/
-
-                     }
-                  }
     }
 }
