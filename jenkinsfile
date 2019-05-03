@@ -1,10 +1,10 @@
 pipeline{
     agent any
 
- tools {
+ /*tools {
         maven 'Maven 3.6.1'
        // jdk 'jdk8'
-    }
+    }*/
 
     stages{
          stage('compilation du projet'){
