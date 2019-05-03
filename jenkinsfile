@@ -24,7 +24,19 @@ pipeline{
             echo "compile"
             sh 'mvn clean compile'
          }
-
     }
+     stage('test du projet '){
+        steps{
+             echo "test"
+             sh 'mvn test'
+        }
+     }
+     
+     stage('Deploiement du projet '){
+          steps{
+              echo "debut du deploiement avec maven"
+               sh 'mvn deploy'
+          }
+       }
   }
 }
