@@ -1,17 +1,21 @@
 pipeline{
-    agent any
+    agent {
+        docker {
+            image 'mysql:5.7.26'
+        }
+    }
 
  tools {
         maven 'Maven 3.3.9'
-       // jdk 'jdk8'
     }
 
-    stages{
+ stages{
 
       stage ('Build') {
         steps {
             sh 'mvn -Dmaven.test.failure.ignore=true install'
         }
+
         post {
             success {
                 junit 'target/surefire-reports/**/*.xml'
@@ -25,18 +29,21 @@ pipeline{
             sh 'mvn clean compile'
          }
     }
+
      stage('test du projet '){
         steps{
              echo "test"
-             sh 'mvn test'
+            // sh 'mvn test'
+            sh 'mysql --version'
         }
      }
-     
-     stage('Deploiement du projet '){
+
+     stage('Déploiement du projet '){
           steps{
               echo "debut du deploiement avec maven"
                sh 'mvn deploy'
           }
        }
   }
+
 }
